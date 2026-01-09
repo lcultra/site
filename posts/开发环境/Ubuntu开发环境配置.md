@@ -1,7 +1,7 @@
 ---
 title: Ubuntu 开发环境配置
 date: 2024-04-01
-description:
+description: Ubuntu 24.04 远程开发环境与工具链配置指南
 ---
 
 # 配置远程开发环境
