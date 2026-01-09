@@ -61,6 +61,12 @@ export default defineConfig({
     lastUpdated: true,
     cleanUrls: true,
     // metaChunk: true,
+    sitemap: {
+        hostname: 'https://lclove.de5.net',
+        transformItems(items) {
+            return items.filter(item => !item.url.includes('trash'));
+        },
+    },
     vite: {
         publicDir: '../public',
         plugins: [
