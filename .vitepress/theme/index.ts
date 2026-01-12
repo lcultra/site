@@ -3,6 +3,7 @@ import DefaultTheme from 'vitepress/theme';
 // https://vitepress.dev/guide/custom-theme
 import { h } from 'vue';
 import Archive from './components/Archive.vue';
+import Giscus from './components/Giscus.vue';
 import Index from './components/Index.vue';
 import './style.css';
 
@@ -11,6 +12,7 @@ export default {
     Layout: () => {
         return h(DefaultTheme.Layout, null, {
             // https://vitepress.dev/guide/extending-default-theme#layout-slots
+            'doc-after': () => h(Giscus, null, {}),
         });
     },
     enhanceApp({ app, router, siteData }) {
