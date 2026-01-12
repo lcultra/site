@@ -14,5 +14,5 @@
 }
 
 .DocSearch-Button {
-    @apply bg-bg border border-divider;
+    @apply bg-bg border-divider md:border;
 }

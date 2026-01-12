@@ -25,7 +25,7 @@ const { visibleItems, hasMore, sentinel, loading } = useInfiniteScroll(
 
 <template>
     <section>
-        <div class="mx-auto max-w-3xl px-5 pt-16 pb-12 sm:px-6 lg:px-0">
+        <div class="mx-auto max-w-3xl px-5 pb-12 sm:px-6 md:pt-16 lg:px-0">
             <ul class="">
                 <li
                     v-for="post in visibleItems"
