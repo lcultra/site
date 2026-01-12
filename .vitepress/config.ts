@@ -1,5 +1,4 @@
-import type { DefaultTheme } from 'vitepress';
-import process from 'node:process';
+import type { DefaultTheme, HeadConfig } from 'vitepress';
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'vitepress';
 
@@ -55,6 +54,8 @@ export default defineConfig({
 
     },
 
+    head: head(),
+
     /* ~^v^~ */
 
     srcDir: 'posts',
@@ -75,23 +76,23 @@ export default defineConfig({
     },
 });
 
-function nav(): DefaultTheme.NavItem[] {
-    const isProd = process.env.NODE_ENV === 'production';
-
+function head(): HeadConfig[] {
     return [
-        { text: '首页', link: '/' },
-        ...(isProd
-            ? []
-            : [
-                    {
-                        text: '文章',
-                        items: [
-                            { text: '草稿', link: '/.draft' },
-                            { text: '私有', link: '/.private' },
-                            { text: '废弃', link: '/.trash' },
-                        ],
-                    },
-                ]),
+        [
+            'script',
+            {},
+            `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5BPX4Q72');`,
+        ],
+    ];
+}
+
+function nav(): DefaultTheme.NavItem[] {
+    return [
+        { text: '文章', link: '/' },
         { text: '归档', link: '/archive' },
         { text: '关于', link: '/about' },
     ];
