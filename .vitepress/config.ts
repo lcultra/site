@@ -79,6 +79,10 @@ export default defineConfig({
 function head(): HeadConfig[] {
     return [
         [
+            'link',
+            { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+        ],
+        [
             'script',
             { async: 'true', src: 'https://www.googletagmanager.com/gtag/js?id=G-5W9YGL9FZR' },
         ],
