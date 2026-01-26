@@ -47,7 +47,6 @@ export default defineConfig({
         skipToContentLabel: '跳转到内容',
         nav: nav(),
         sidebar: sidebar(),
-
     },
 
     /* ~^v^~ 站点配置 */

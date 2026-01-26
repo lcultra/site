@@ -1,28 +1,3 @@
----
-title: axios 请求qps限制
-date: 2026-01-26
-description: 介绍如何进行 axios 的 qps 限制
----
-
-## 不包含http请求发送&接收时间
-
-::: tip 场景描述
-要求同时发送多个http请求，但是要求两次请求的间隔不能小于 minInterval，不包括 http 请求过程的时间
-:::
-
-::: code-group
-
-```typescript [index.ts]
-import axios from 'axios';
-import { createRequestThrottle } from './throttle.ts';
-
-const http = axios.create({
-    // ...other config
-});
-http.interceptors.request.use(createRequestThrottle(perMilliseconds));
-```
-
-```typescript [./throttle.ts]
 import type { InternalAxiosRequestConfig } from 'axios';
 import { setTimeout } from 'node:timers/promises';
 
@@ -60,6 +35,3 @@ export function createRequestThrottle(minInterval: number) {
         return runPromise;
     };
 }
-```
-
-:::
