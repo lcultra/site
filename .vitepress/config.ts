@@ -4,8 +4,7 @@ import { defineConfig } from 'vitepress';
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-    title: '牧村',
-    description: '个人博客_web前端技术文章',
+    // 主题配置
     themeConfig: {
         // 本地搜索
         search: {
@@ -46,22 +45,22 @@ export default defineConfig({
         lightModeSwitchTitle: '切换到浅色模式',
         darkModeSwitchTitle: '切换到深色模式',
         skipToContentLabel: '跳转到内容',
-
-        // https://vitepress.dev/reference/default-theme-config
         nav: nav(),
-
         sidebar: sidebar(),
 
     },
 
-    head: head(),
-
-    /* ~^v^~ */
-
+    /* ~^v^~ 站点配置 */
+    title: '牧村',
+    description: '个人博客_web前端技术文章',
     srcDir: 'posts',
     lastUpdated: true,
     cleanUrls: true,
     // metaChunk: true,
+    head: head(),
+    markdown: {
+        lineNumbers: true,
+    },
     sitemap: {
         hostname: 'https://lclove.de5.net',
         transformItems(items) {
@@ -98,6 +97,9 @@ function head(): HeadConfig[] {
     ];
 }
 
+/**
+ * @doc https://vitepress.dev/reference/default-theme-nav
+ */
 function nav(): DefaultTheme.NavItem[] {
     return [
         { text: '文章', link: '/' },
@@ -106,10 +108,10 @@ function nav(): DefaultTheme.NavItem[] {
     ];
 }
 
+/**
+ * @doc https://vitepress.dev/reference/default-theme-sidebar
+ */
 function sidebar(): DefaultTheme.Sidebar {
-    // {
-
-    // }
     return {
         // '/posts/': [
         //     {
